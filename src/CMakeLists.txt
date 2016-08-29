@@ -38,7 +38,7 @@ set( SIZE32  int32_t  )
 set( USIZE32 uint32_t )
 set( SIZE64  int64_t  )
 
-configure_file( ../include/ogg/config_types.h.in ../include/ogg/config_types.h )
+configure_file( ${CMAKE_SOURCE_DIR}/../include/ogg/config_types.h.in ${CMAKE_SOURCE_DIR}/../include/ogg/config_types.h )
 
 
 add_library( ogg STATIC framing.c bitwise.c )
@@ -46,8 +46,8 @@ add_library( ogg STATIC framing.c bitwise.c )
 set_target_properties( ogg
 	PROPERTIES
 		LINK_FLAGS -no-undefined
-		INCLUDE_DIRECTORIES "../include"
-		PUBLIC_HEADER "../include/ogg/ogg.h;../include/ogg/os_types.h;../include/ogg/config_types.h"
+        INCLUDE_DIRECTORIES "${CMAKE_SOURCE_DIR}/../include"
+        PUBLIC_HEADER "${CMAKE_SOURCE_DIR}/../include/ogg/ogg.h;${CMAKE_SOURCE_DIR}/../include/ogg/os_types.h;${CMAKE_SOURCE_DIR}/../include/ogg/config_types.h"
 )
 
 # Set installation
